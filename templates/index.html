@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Мои заметки</title>
+</head>
+<body>
+
+    <h1>Мои заметки</h1>
+
+    <a href="{{ url_for('create') }}">+ Создать заметку</a>
+
+    <hr>
+
+    {% for note in notes %}
+        <h2>{{ note["title"] }}</h2>
+        <p style="white-space: pre-wrap;">{{ note["content"] }}</p>
+
+        <a href="{{ url_for('edit', note_id=note['id']) }}">
+            Редактировать
+        </a>
+
+        <form action="{{ url_for('delete', note_id=note['id']) }}"
+              method="POST" style="display: inline;">
+            <button type="submit">Удалить</button>
+        </form>
+
+        <hr>
+    {% else %}
+        <p>Пока нет заметок.</p>
+    {% endfor %}
+
+</body>
+</html>

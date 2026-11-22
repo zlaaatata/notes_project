@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Редактирование заметки</title>
+</head>
+<body>
+
+    <h1>Редактировать заметку</h1>
+
+    <form method="POST">
+        <p>
+            <input type="text" name="title"
+                   value="{{ note['title'] }}" required>
+        </p>
+
+        <p>
+            <textarea name="content" rows="8" cols="40">{{ note["content"] }}</textarea>
+        </p>
+
+        <button type="submit">Сохранить изменения</button>
+    </form>
+
+    <p><a href="{{ url_for('index') }}">Назад</a></p>
+
+</body>
+</html>

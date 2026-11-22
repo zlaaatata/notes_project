@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Новая заметка</title>
+</head>
+<body>
+    <h1>Создать заметку</h1>
+
+    <form method="POST">
+        <p>
+            <input type="text" name="title"
+                   placeholder="Название" required>
+        </p>
+
+        <p>
+            <textarea name="content"
+                      placeholder="Текст заметки"
+                      rows="8" cols="40"></textarea>
+        </p>
+
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <p><a href="{{ url_for('index') }}">Назад</a></p>
+</body>
+</html>
